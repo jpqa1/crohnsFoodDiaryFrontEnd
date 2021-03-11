@@ -22,6 +22,85 @@
 </header>
 
 <body>
+    <div class="row">
+        <img src="./food-banner.png" class="img-fluid" alt="...">
+    </div>
     
+    </div>
+    <div class="container overflow-hidden">
+        <div class="row">
+            <div class="col">
+                <h5>Record Food:</h5>
+                <form id="foodForm">
+                    <label for="foodName">Name of Food:</label>
+                    <input name="name" id="foodName" class="form-control" autofocus>
+                    <label for="foodType" class="form-label">Type of Food:</label>
+                    <input name="type" id="foodType" class="form-control" min="0">
+                    <label for="caloriesPerPortion" class="form-label">Calories Per Portion:</label>
+                    <input name="calories" id="foodCalories" class="form-control" min="0">
+                    <label for="foodEffect" class="form-label">Effect of Food:</label>
+                    <input name="effect" id="foodEffect" class="form-control" min="0">
+                    <br />
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+    
+        <div class="row">
+            <div class="col">
+                <h5>All Foods</h5>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type of Food</th>
+                            <th>Calories Per Portion</th>
+                            <th>Effect</th>
+                            <th>Delete</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="userOutput">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>Positive Food</h5>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type of Food</th>
+                            <th>Calories Per Portion</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="userOutputPositive">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <h5>Negative Food</h5>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type of Food</th>
+                            <th>Calories Per Portion</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="userOutputNegative">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
