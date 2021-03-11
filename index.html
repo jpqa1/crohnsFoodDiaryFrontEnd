@@ -7,19 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Crohns Food Diary</title>
 </head>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Crohns Food Diary</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
+    <div id="myNav">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">Crohns Food Diary</a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span> -->
+                </button>
+            </div>
+        </nav>
+    </div>
+
 </header>
 
 <body>
@@ -28,10 +32,13 @@
     </div>
 
     </div>
-    <div class="container overflow-hidden">
-        <div class="row">
+    <div class="container overflow-hidden p-3">
+        <div class="row p-3">
             <div class="col">
-                <h5>Record Food:</h5>
+                <div id="foodHeadings">
+                    <h5>Record Food:</h5>
+                    <hr>
+                </div>
                 <form id="foodOutputForm">
                     <label for="foodName">Name of Food:</label>
                     <input name="name" id="foodName" class="form-control" autofocus>
@@ -42,14 +49,19 @@
                     <label for="foodEffect" class="form-label">Effect of Food:</label>
                     <input name="effect" id="foodEffect" class="form-control" min="0">
                     <br />
-                    <button type="reset" class="btn btn-primary">Reset</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div id="foodButtons">
+                        <button type="reset" class="cd-btn cd-primary">Reset</button>
+                        <button type="submit" class="cd-btn cd-primary">Submit</button>
+                    </div>
                 </form>
             </div>
 
-            <div class="row">
+            <div class="row p-3">
                 <div class="col">
-                    <h5>All Foods</h5>
+                    <div id="foodHeadings">
+                        <h5>All Foods</h5>
+                        <hr>
+                    </div>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -67,9 +79,12 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
+            <div class="row p-3">
                 <div class="col">
-                    <h5>Positive Food</h5>
+                    <div id="foodHeadings">
+                        <h5>Positive Food</h5>
+                        <hr>
+                    </div>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -84,7 +99,10 @@
                     </table>
                 </div>
                 <div class="col">
-                    <h5>Negative Food</h5>
+                    <div id="foodHeadings">
+                        <h5>Negative Food</h5>
+                        <hr>
+                    </div>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -108,7 +126,9 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="foodModalLabel">Modal title</h5>
+                        <div id="foodHeadings">
+                            <h5 class="modal-title" id="foodModalLabel">Update Food</h5>
+                        </div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -124,12 +144,16 @@
                             <label for="foodEffect" class="form-label">Effect of Food:</label>
                             <input name="effect" id="foodEffect" class="form-control" min="0">
                             <br />
-                            <button type="reset" class="btn btn-primary">Reset</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div id="foodButtons">
+                                <button type="reset" class="cd-btn cd-primary">Reset</button>
+                                <button type="submit" class="cd-btn cd-primary">Submit</button>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div id="foodButtons">
+                            <button type="button" class="cd-btn cd-primary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>

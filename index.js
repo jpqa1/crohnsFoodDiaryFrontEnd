@@ -129,22 +129,25 @@ function renderFood(food) {
     foodEffect.innerText = food.effect;
 
     const deleteTd = document.createElement("td");
+    deleteTd.id = "foodButtons";
 
     const deleteButton = document.createElement("button");
-    deleteButton.className = "btn btn-link";
-    deleteButton.innerText = "delete";
+    deleteButton.className = "cd-btn cd-primary";
+    deleteButton.innerText = "Delete";
     deleteButton.addEventListener("click", function () {
         deleteFood(food.id);
     })
 
     deleteTd.appendChild(deleteButton);
 
+
     const updateTd = document.createElement("td");
+    updateTd.id = "foodButtons";
 
     // UPDATE
     const updateButton = document.createElement("button");
-    updateButton.className = "btn btn-primary";
-    updateButton.innerText = "update";
+    updateButton.className = "cd-btn cd-primary";
+    updateButton.innerText = "Update";
     updateButton.addEventListener("click", function () {
         myModal.toggle();
         foodId = food.id;
@@ -211,6 +214,8 @@ document.getElementById("foodOutputForm").addEventListener('submit', function (e
         this.reset();
         this.name.focus();
         getFoods();
+        getPositiveFoods();
+        getNegativeFoods();
     })
         .catch(err => console.error(err));
 
