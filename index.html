@@ -1,12 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Crohns Food Diary</title>
 </head>
+
+<header>
+    <div id="myNav">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">Crohns Food Diary</a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span> -->
+                </button>
+            </div>
+        </nav>
+    </div>
+
+</header>
+
 <body>
-    
+    <div class="row">
+        <img src="./food-banner.png" class="img-fluid" alt="...">
+    </div>
+
+    </div>
+    <div class="container overflow-hidden p-3">
+        <div class="row p-3">
+            <div class="col">
+                <div id="foodHeadings">
+                    <h5>Record Food:</h5>
+                    <hr>
+                </div>
+                <form id="foodOutputForm">
+                    <label for="foodName">Name of Food:</label>
+                    <input name="name" id="foodName" class="form-control" autofocus>
+                    <label for="foodType" class="form-label">Type of Food:</label>
+                    <input name="type" id="foodType" class="form-control" min="0">
+                    <label for="caloriesPerPortion" class="form-label">Calories Per Portion:</label>
+                    <input type="number" name="calories" id="foodCalories" class="form-control" min="0">
+                    <label for="foodEffect" class="form-label">Effect of Food:</label>
+                    <input name="effect" id="foodEffect" class="form-control" min="0">
+                    <br />
+                    <div id="foodButtons">
+                        <button type="reset" class="cd-btn cd-primary">Reset</button>
+                        <button type="submit" class="cd-btn cd-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row p-3">
+                <div class="col">
+                    <div id="foodHeadings">
+                        <h5>All Foods</h5>
+                        <hr>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type of Food</th>
+                                <th>Calories Per Portion</th>
+                                <th>Effect</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="foodOutput">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row p-3">
+                <div class="col">
+                    <div id="foodHeadings">
+                        <h5>Positive Food</h5>
+                        <hr>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type of Food</th>
+                                <th>Calories Per Portion</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="foodOutputPositive">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <div id="foodHeadings">
+                        <h5>Negative Food</h5>
+                        <hr>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type of Food</th>
+                                <th>Calories Per Portion</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="foodOutputNegative">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="foodModal" tabindex="-1" role="dialog" aria-labelledby="foodModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div id="foodHeadings">
+                            <h5 class="modal-title" id="foodModalLabel">Update Food</h5>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="foodUpdateForm">
+                            <label for="foodName">Name of Food:</label>
+                            <input name="name" id="foodName" class="form-control" autofocus>
+                            <label for="foodType" class="form-label">Type of Food:</label>
+                            <input name="type" id="foodType" class="form-control" min="0">
+                            <label for="caloriesPerPortion" class="form-label">Calories Per Portion:</label>
+                            <input type="number" name="calories" id="foodCalories" class="form-control" min="0">
+                            <label for="foodEffect" class="form-label">Effect of Food:</label>
+                            <input name="effect" id="foodEffect" class="form-control" min="0">
+                            <br />
+                            <div id="foodButtons">
+                                <button type="reset" class="cd-btn cd-primary">Reset</button>
+                                <button type="submit" class="cd-btn cd-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="foodButtons">
+                            <button type="button" class="cd-btn cd-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END OF MODAL-->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./index.js"></script>
+
 </body>
+
 </html>
