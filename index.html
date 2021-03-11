@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,19 +26,19 @@
     <div class="row">
         <img src="./food-banner.png" class="img-fluid" alt="...">
     </div>
-    
+
     </div>
     <div class="container overflow-hidden">
         <div class="row">
             <div class="col">
                 <h5>Record Food:</h5>
-                <form id="foodForm">
+                <form id="foodOutputForm">
                     <label for="foodName">Name of Food:</label>
                     <input name="name" id="foodName" class="form-control" autofocus>
                     <label for="foodType" class="form-label">Type of Food:</label>
                     <input name="type" id="foodType" class="form-control" min="0">
                     <label for="caloriesPerPortion" class="form-label">Calories Per Portion:</label>
-                    <input name="calories" id="foodCalories" class="form-control" min="0">
+                    <input type="number" name="calories" id="foodCalories" class="form-control" min="0">
                     <label for="foodEffect" class="form-label">Effect of Food:</label>
                     <input name="effect" id="foodEffect" class="form-control" min="0">
                     <br />
@@ -45,62 +46,108 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-    
-        <div class="row">
-            <div class="col">
-                <h5>All Foods</h5>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type of Food</th>
-                            <th>Calories Per Portion</th>
-                            <th>Effect</th>
-                            <th>Delete</th>
-                            <th>Update</th>
-                        </tr>
-                    </thead>
 
-                    <tbody id="userOutput">
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col">
+                    <h5>All Foods</h5>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type of Food</th>
+                                <th>Calories Per Portion</th>
+                                <th>Effect</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="foodOutput">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5>Positive Food</h5>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type of Food</th>
+                                <th>Calories Per Portion</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="foodOutputPositive">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <h5>Negative Food</h5>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type of Food</th>
+                                <th>Calories Per Portion</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="foodOutputNegative">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="foodModal" tabindex="-1" role="dialog" aria-labelledby="foodModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="foodModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="foodUpdateForm">
+                            <label for="foodName">Name of Food:</label>
+                            <input name="name" id="foodName" class="form-control" autofocus>
+                            <label for="foodType" class="form-label">Type of Food:</label>
+                            <input name="type" id="foodType" class="form-control" min="0">
+                            <label for="caloriesPerPortion" class="form-label">Calories Per Portion:</label>
+                            <input type="number" name="calories" id="foodCalories" class="form-control" min="0">
+                            <label for="foodEffect" class="form-label">Effect of Food:</label>
+                            <input name="effect" id="foodEffect" class="form-control" min="0">
+                            <br />
+                            <button type="reset" class="btn btn-primary">Reset</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <h5>Positive Food</h5>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type of Food</th>
-                            <th>Calories Per Portion</th>
-                            <th>Effect</th>
-                        </tr>
-                    </thead>
+        <!--END OF MODAL-->
 
-                    <tbody id="userOutputPositive">
-                    </tbody>
-                </table>
-            </div>
-            <div class="col">
-                <h5>Negative Food</h5>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type of Food</th>
-                            <th>Calories Per Portion</th>
-                            <th>Effect</th>
-                        </tr>
-                    </thead>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./index.js"></script>
 
-                    <tbody id="userOutputNegative">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
 </body>
+
 </html>
